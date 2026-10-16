@@ -1,0 +1,24 @@
+# kotlin publish mavenLocal
+product: jvm/lib
+
+layout: maven-like
+
+repositories:
+  - id: mavenLocal
+    url: mavenLocal
+    publish: true
+
+settings:
+  jvm:
+    release: 25
+  publishing:
+    enabled: true
+    artifactId: files
+    group: ru.senioravanti.commons
+    version: 1.0.0
+
+dependencies:
+  - org.apache.tika:tika-core:3.3.2: exported
+
+test-dependencies:
+  - org.junit.jupiter:junit-jupiter-api:6.1.1
