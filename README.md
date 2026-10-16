@@ -13,10 +13,15 @@
 
 ```sh
 version="$(yq '.settings.publishing.version' module.yaml)"
-git tag -m 'notes...' "v${version}" main
+git tag -m '' "v${version}" main
 git push --follow-tags origin main
 gh release create "v${version}" \
   --target main \
-   --notes-from-tag \
+  --notes-from-tag \
   --title "${version}"
 ```
+
+`git push --tags` :: Отправить все теги в удалённый репозиторий.
+`git tag -l` :: Список тэгов
+`git tag -d <tag>` :: Удалить тэг `<tag>` локально.
+`git push origin :refs/tags/<tag>` :: Удалить тэг `<tag>` в удалённом репозитории.
